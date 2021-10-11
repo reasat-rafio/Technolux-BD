@@ -37,3 +37,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+apps/sanity-studio/dist
+apps/sanity-studio/node_modules
