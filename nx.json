@@ -26,6 +26,7 @@
       }
     ]
   },
+
   "projects": {
     "frontend": {
       "tags": []
@@ -33,6 +34,10 @@
     "frontend-e2e": {
       "tags": [],
       "implicitDependencies": ["frontend"]
-    }
+    },
+    "server": {
+      "tags": []
+    },
+    "sanity-studio": {}
   }
 }
