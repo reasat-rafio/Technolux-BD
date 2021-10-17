@@ -20,11 +20,13 @@
     "jsx": "preserve",
     "paths": {
       "@components/*": ["src/components/*"],
-      "@contexts/*": ["src/context/*"],
+      "@contexts/*": ["src/contexts/*"],
       "@styles/*": ["src/styles/*"],
       "@lib/*": ["src/lib/*"],
       "@animations/*": ["src/animations/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@settings/*": ["src/settings/*"],
+      "@framework/*": ["src/framework/basic-rest/*"]
     }
   },
 

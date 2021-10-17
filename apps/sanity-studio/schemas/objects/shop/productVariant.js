@@ -16,6 +16,12 @@ export default {
     },
 
     {
+      title: 'Offer Price',
+      name: 'offer_price',
+      type: 'number',
+    },
+
+    {
       name: 'images',
       title: 'Images',
       type: 'array',
