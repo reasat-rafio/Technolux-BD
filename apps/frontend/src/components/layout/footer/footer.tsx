@@ -1,6 +1,6 @@
-import Widgets from "./widgets";
-import Copyright from "./copyright";
-import { footer } from "./data";
+import Widgets from './widgets';
+import Copyright from './copyright';
+import { footer } from './data';
 const { widgets, payment } = footer;
 
 const Footer: React.FC = () => (
