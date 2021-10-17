@@ -1,6 +1,6 @@
 export default {
-  name: 'vendor',
-  title: 'Vendor',
+  name: 'brand',
+  title: 'Brand',
   type: 'document',
   fields: [
     {
@@ -34,4 +34,4 @@ export default {
       media: 'logo',
     },
   },
-}
+};

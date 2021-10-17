@@ -46,17 +46,7 @@ export default {
         layout: 'tags',
       },
     },
-    {
-      name: 'vendor',
-      title: 'Vendor',
-      type: 'reference',
-      to: {type: 'vendor'},
-    },
-    {
-      name: 'blurb',
-      title: 'Blurb',
-      type: 'localeString',
-    },
+
     {
       name: 'categories',
       title: 'Categories',
@@ -64,14 +54,27 @@ export default {
       of: [
         {
           type: 'reference',
-          to: {type: 'category'},
+          to: { type: 'category' },
         },
       ],
     },
     {
+      name: 'deals',
+      title: 'Deals',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: { type: 'deal' },
+        },
+      ],
+    },
+
+    {
       name: 'body',
       title: 'Body',
-      type: 'localeBlockContent',
+      type: 'array',
+      of: [{ type: 'block' }],
     },
   ],
 
@@ -82,4 +85,4 @@ export default {
       media: 'defaultProductVariant.images[0]',
     },
   },
-}
+};
