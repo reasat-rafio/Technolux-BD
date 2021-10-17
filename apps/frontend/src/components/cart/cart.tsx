@@ -9,7 +9,7 @@ import CartItem from './cart-item';
 import EmptyCart from './empty-cart';
 import Link from '@components/ui/link';
 import { ROUTES } from '@utils/routes';
-import cn from 'classnames';
+import clsx from 'clsx';
 
 export default function Cart() {
   const { closeCart } = useUI();
@@ -22,7 +22,7 @@ export default function Cart() {
     <div className="flex flex-col w-full h-full justify-between">
       <div className="w-full flex justify-between items-center relative ps-5 md:ps-7 py-0.5 border-b border-gray-100">
         <h2 className="font-bold text-xl md:text-2xl m-0 text-heading">
-          {/* {t('text-shopping-cart')} */}
+          Shopping cart
         </h2>
         <button
           className="flex text-2xl items-center justify-center text-gray-500 px-4 md:px-6 py-6 lg:py-8 focus:outline-none transition-opacity hover:opacity-60"
@@ -51,7 +51,7 @@ export default function Cart() {
         >
           <EmptyCart />
           <h3 className="text-lg text-heading font-bold pt-8">
-            {t('text-empty-cart')}
+            Your cart is empty.
           </h3>
         </motion.div>
       )}
@@ -62,11 +62,9 @@ export default function Cart() {
       >
         <Link
           href={isEmpty === false ? ROUTES.CHECKOUT : '/'}
-          className={cn(
+          className={clsx(
             'w-full px-5 py-3 md:py-4 flex items-center justify-center bg-heading rounded-md text-sm sm:text-base text-white focus:outline-none transition duration-300 hover:bg-gray-600',
-            {
-              'cursor-not-allowed bg-gray-400 hover:bg-gray-400': isEmpty,
-            }
+            isEmpty && 'cursor-not-allowed bg-gray-400 hover:bg-gray-400'
           )}
         >
           <span className="w-full pe-5 -mt-0.5 py-0.5">

@@ -1,4 +1,4 @@
-import { QueryKey } from "react-query";
+import { QueryKey } from 'react-query';
 
 export type CollectionsQueryOptionsType = {
   text?: string;
@@ -83,7 +83,7 @@ export type Product = {
   tag?: Tag[];
   meta?: any[];
   description?: string;
-  variations?: object;
+  variations?: Record<string, unknown>;
   [key: string]: unknown;
 };
 export type OrderItem = {

@@ -12,7 +12,10 @@ interface Item {
   sale_price?: number;
   [key: string]: unknown;
 }
-export function generateCartItem(item: Item, attributes: object) {
+export function generateCartItem(
+  item: Item,
+  attributes: Record<string, unknown>
+) {
   const { id, name, slug, image, price, sale_price } = item;
   return {
     id: !isEmpty(attributes)

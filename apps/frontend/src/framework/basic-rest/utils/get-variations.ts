@@ -1,6 +1,6 @@
-import groupBy from "lodash/groupBy";
+import groupBy from 'lodash/groupBy';
 
-export function getVariations(variations: object | undefined) {
+export function getVariations(variations: Record<string, unknown> | undefined) {
   if (!variations) return {};
-  return groupBy(variations, "attribute.slug");
+  return groupBy(variations, 'attribute.slug');
 }
