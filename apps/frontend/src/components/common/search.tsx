@@ -88,6 +88,7 @@ export default function Search() {
                     ) : (
                       data?.map((item, index) => (
                         <div
+                          key={index}
                           className=" p-5 border-b border-gray-150 relative last:border-b-0"
                           onClick={closeSearch}
                         >

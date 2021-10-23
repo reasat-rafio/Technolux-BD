@@ -6,7 +6,6 @@ import Search from '@components/common/search';
 import CookieBar from '@components/common/cookie-bar';
 import { useAcceptCookies } from '@utils/use-accept-cookies';
 import Button from '@components/ui/button';
-import { useTranslation } from 'next-i18next';
 
 const Layout: React.FC = ({ children }) => {
   const { acceptedCookies, onAcceptCookies } = useAcceptCookies();

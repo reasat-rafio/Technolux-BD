@@ -5,7 +5,7 @@ export interface Item {
   [key: string]: any;
 }
 
-export interface UpdateItemInput extends Partial<Omit<Item, "id">> {}
+export interface UpdateItemInput extends Partial<Omit<Item, 'id'>> {}
 
 export function addItemWithQuantity(
   items: Item[],
@@ -28,7 +28,7 @@ export function addItemWithQuantity(
 
 export function removeItemOrQuantity(
   items: Item[],
-  id: Item["id"],
+  id: Item['id'],
   quantity: number
 ) {
   return items.reduce((acc: Item[], item) => {
@@ -47,13 +47,13 @@ export function addItem(items: Item[], item: Item) {
   return [...items, item];
 }
 
-export function getItem(items: Item[], id: Item["id"]) {
+export function getItem(items: Item[], id: Item['id']) {
   return items.find((item) => item.id === id);
 }
 
 export function updateItem(
   items: Item[],
-  id: Item["id"],
+  id: Item['id'],
   item: UpdateItemInput
 ) {
   return items.map((existingItem) =>
@@ -61,7 +61,7 @@ export function updateItem(
   );
 }
 
-export function removeItem(items: Item[], id: Item["id"]) {
+export function removeItem(items: Item[], id: Item['id']) {
   return items.filter((existingItem) => existingItem.id !== id);
 }
 

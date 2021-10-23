@@ -67,11 +67,11 @@ export default function Cart() {
             isEmpty && 'cursor-not-allowed bg-gray-400 hover:bg-gray-400'
           )}
         >
-          <span className="w-full pe-5 -mt-0.5 py-0.5">
+          <span className="w-full pr-5 -mt-0.5 py-0.5">
             {/* {t('text-proceed-to-checkout')} */}
           </span>
           <span className="ms-auto flex-shrink-0 -mt-0.5 py-0.5">
-            <span className="border-s border-white pe-5 py-0.5" />
+            <span className="border-s border-white pr5 py-0.5" />
             {cartTotal}
           </span>
         </Link>

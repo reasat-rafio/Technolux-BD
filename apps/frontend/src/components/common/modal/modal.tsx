@@ -35,7 +35,7 @@ const containerClasses = {
 };
 const closeBtnClasses = {
   center: 'top-4 end-4',
-  bottom: 'top-1/4 start-1/2 transform -translate-y-1/2 -translate-x-1/2',
+  bottom: 'top-1/4 left-1/2 transform -translate-y-1/2 -translate-x-1/2',
 };
 
 const Modal: FC<ModalProps> = ({

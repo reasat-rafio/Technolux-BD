@@ -44,7 +44,7 @@ const Header: React.FC = () => {
       ref={siteHeaderRef}
       className="w-full h-16 sm:h-20 lg:h-24 relative z-20"
     >
-      <div className="innerSticky text-gray-700 body-font fixed bg-white w-full h-16 sm:h-20 lg:h-24 z-20 ps-4 md:ps-0 lg:ps-6 pe-4 lg:pe-6 transition duration-200 ease-in-out">
+      <div className="innerSticky text-gray-700 body-font fixed bg-white w-full h-16 sm:h-20 lg:h-24 z-20 px-4 md:px-0 lg:px-6 pr4 lg:pr6 transition duration-200 ease-in-out">
         <div className="flex items-center justify-center mx-auto max-w-[1920px] h-full w-full">
           <button
             aria-label="Menu"
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
             data={site_header.menu}
             className="hidden lg:flex md:ms-6 xl:ms-10"
           />
-          {/* 
+          {/*
           <div className="flex-shrink-0 ms-auto lg:me-5 xl:me-8 2xl:me-10">
             <LanguageSwitcher />
           </div> */}

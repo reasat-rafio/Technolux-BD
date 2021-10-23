@@ -1,4 +1,4 @@
-const MenuIcon: React.FC<React.SVGAttributes<{}>> = (props) => {
+const MenuIcon: React.FC<React.SVGAttributes<any>> = (props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

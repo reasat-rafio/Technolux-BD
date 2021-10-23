@@ -12,7 +12,6 @@ import {
   IoLogoYoutube,
   IoClose,
 } from 'react-icons/io5';
-import { useTranslation } from 'next-i18next';
 
 const social = [
   {
@@ -49,12 +48,12 @@ export default function MobileMenu() {
   const [activeMenus, setActiveMenus] = useState<any>([]);
   const { site_header } = siteSettings;
   const { closeSidebar } = useUI();
-  const { t } = useTranslation('menu');
+
   const handleArrowClick = (menuName: string) => {
-    let newActiveMenus = [...activeMenus];
+    const newActiveMenus = [...activeMenus];
 
     if (newActiveMenus.includes(menuName)) {
-      var index = newActiveMenus.indexOf(menuName);
+      const index = newActiveMenus.indexOf(menuName);
       if (index > -1) {
         newActiveMenus.splice(index, 1);
       }
@@ -78,10 +77,10 @@ export default function MobileMenu() {
         <div className="flex items-center justify-between">
           <Link
             href={data.path}
-            className="w-full text-[15px] menu-item relative py-3 ps-5 md:ps-7 pe-4 transition duration-300 ease-in-out"
+            className="w-full text-[15px] menu-item relative py-3 ps-5 md:ps-7 pr4 transition duration-300 ease-in-out"
           >
             <span className="block w-full" onClick={closeSidebar}>
-              {t(`${data.label}`)}
+              {data.label}
             </span>
           </Link>
           {hasSubMenu && (
@@ -118,7 +117,7 @@ export default function MobileMenu() {
     return (
       <ul className="pt-0.5">
         {data?.map((menu: any, index: number) => {
-          const menuName: string = `sidebar-submenu-${dept}-${menuIndex}-${index}`;
+          const menuName = `sidebar-submenu-${dept}-${menuIndex}-${index}`;
 
           return (
             <ListMenu
@@ -155,8 +154,8 @@ export default function MobileMenu() {
           <div className="flex flex-col py-7 px-0 lg:px-2 text-heading">
             <ul className="mobileMenu">
               {site_header.mobileMenu.map((menu, index) => {
-                const dept: number = 1;
-                const menuName: string = `sidebar-menu-${dept}-${index}`;
+                const dept = 1;
+                const menuName = `sidebar-menu-${dept}-${index}`;
 
                 return (
                   <ListMenu
@@ -180,8 +179,9 @@ export default function MobileMenu() {
               className={`text-heading p-5 opacity-60 first:-ms-4 transition duration-300 ease-in hover:opacity-100 ${item.className}`}
               target="_blank"
               key={index}
+              rel="noreferrer"
             >
-              <span className="sr-only">{t(`${item.title}`)}</span>
+              <span className="sr-only">{item.title}</span>
               {item.icon}
             </a>
           ))}

@@ -15,8 +15,7 @@ import { DefaultSeo } from '@components/common/default-seo';
 import '@fontsource/open-sans';
 import '@fontsource/open-sans/600.css';
 import '@fontsource/open-sans/700.css';
-import '@fontsource/satisfy';
-// external
+
 import 'react-toastify/dist/ReactToastify.css';
 // base css file
 import '@styles/scrollbar.css';

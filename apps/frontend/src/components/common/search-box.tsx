@@ -15,7 +15,7 @@ const SearchBox = React.forwardRef<HTMLInputElement, SearchProps>(
   ({ className, onSubmit, onClear, ...rest }, ref) => {
     return (
       <form
-        className="relative pe-12 md:pe-14 bg-white overflow-hidden rounded-md w-full"
+        className="relative pr12 md:pr14 bg-white overflow-hidden rounded-md w-full"
         noValidate
         role="search"
         onSubmit={onSubmit}
@@ -36,7 +36,7 @@ const SearchBox = React.forwardRef<HTMLInputElement, SearchProps>(
         </label>
         <button
           type="button"
-          className="outline-none text-2xl md:text-3xl text-gray-400 absolute top-0 end-0 w-12 md:w-14 h-full flex items-center justify-center transition duration-200 ease-in-out hover:text-heading focus:outline-none"
+          className="outline-none text-2xl md:text-3xl text-gray-400 absolute top-0 right-0 w-12 md:w-14 h-full flex items-center justify-center transition duration-200 ease-in-out hover:text-heading focus:outline-none"
           onClick={onClear}
         >
           <IoCloseOutline className="w-6 h-6" />
