@@ -41,7 +41,7 @@ const Copyright: React.FC<CopyrightProps> = ({ payment }) => {
                 >
                   <img
                     src={item.image}
-                    alt={t(`${item.name}`)}
+                    alt={item.name}
                     height={item.height}
                     width={item.width}
                   />

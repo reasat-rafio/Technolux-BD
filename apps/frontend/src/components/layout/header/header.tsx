@@ -5,7 +5,7 @@ import HeaderMenu from '@components/layout/header/header-menu';
 import Logo from '@components/ui/logo';
 import { useUI } from '@contexts/ui.context';
 import { ROUTES } from '@utils/routes';
-import { addActiveScroll } from '@utils/add-active-scroll';
+import { AddActiveScroll } from '@utils/add-active-scroll';
 import dynamic from 'next/dynamic';
 
 // import LanguageSwitcher from '@components/ui/language-switcher';
@@ -27,7 +27,7 @@ const Header: React.FC = () => {
   } = useUI();
   //   const { t } = useTranslation('common');
   const siteHeaderRef = useRef() as DivElementRef;
-  addActiveScroll(siteHeaderRef);
+  AddActiveScroll(siteHeaderRef);
 
   function handleLogin() {
     setModalView('LOGIN_VIEW');
@@ -83,11 +83,11 @@ const Header: React.FC = () => {
                 btnProps={{
                   className:
                     'text-sm xl:text-base text-heading font-semibold focus:outline-none',
-                  children: t('text-sign-in'),
+                  children: 'text-sign-in',
                   onClick: handleLogin,
                 }}
               >
-                {t('text-account')}
+                text-account
               </AuthMenu>
             </div>
             <CartButton />

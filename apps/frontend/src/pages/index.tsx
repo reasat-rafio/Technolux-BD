@@ -12,6 +12,8 @@ import BannerWithProducts from 'src/containers/banner-with-products';
 import ExclusiveBlock from 'src/containers/exclusive-block';
 import NewArrivalsProductFeed from '@components/product/feeds/new-arrivals-product-feed';
 import Subscription from '@components/common/subscription';
+import Layout from '@components/layout/layout';
+import { GetStaticProps } from 'next';
 
 export function Index() {
   return (
@@ -48,3 +50,13 @@ export function Index() {
 }
 
 export default Index;
+
+Index.Layout = Layout;
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...['common', 'forms', 'menu', 'footer'],
+    },
+  };
+};
