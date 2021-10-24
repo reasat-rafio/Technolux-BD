@@ -8,35 +8,41 @@ import { useAcceptCookies } from '@utils/use-accept-cookies';
 import Button from '@components/ui/button';
 import { imageUrlBuilder } from '@utils/sanity';
 
-const Layout: React.FC = (pageProps) => {
+const Layout: React.FC<{ pageProps: any; children: React.ReactChildren }> = ({
+  pageProps,
+  children,
+}) => {
   const { acceptedCookies, onAcceptCookies } = useAcceptCookies();
+  console.log('====================================');
+  console.log(pageProps);
+  console.log('====================================');
 
-  // const ogImage =
-  //   pageProps?.data?.page.seo.seoImage ?? pageProps?.data?.site.ogImage;
+  const ogImage =
+    pageProps?.data?.page.seo.seoImage ?? pageProps?.data?.site.ogImage;
 
-  // const openGraphImages = ogImage
-  //   ? [
-  //       { w: 800, h: 600 },
-  //       { w: 1200, h: 630 },
-  //       { w: 600, h: 600 },
-  //       { w: 256, h: 256 },
-  //     ].map(({ w, h }) => ({
-  //       url: `${imageUrlBuilder.image(ogImage).width(w).height(h).url()}`,
-  //       width: w,
-  //       height: h,
-  //       alt: `${pageProps?.data?.page.seo.title}`,
-  //     }))
-  //   : [];
+  const openGraphImages = ogImage
+    ? [
+        { w: 800, h: 600 },
+        { w: 1200, h: 630 },
+        { w: 600, h: 600 },
+        { w: 256, h: 256 },
+      ].map(({ w, h }) => ({
+        url: `${imageUrlBuilder.image(ogImage).width(w).height(h).url()}`,
+        width: w,
+        height: h,
+        alt: `${pageProps?.data?.page.seo.title}`,
+      }))
+    : [];
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* <NextSeo
+      <NextSeo
         title={pageProps?.data?.page.seo.title}
         description={pageProps?.data?.page.seo.description}
         openGraph={{
           images: openGraphImages,
         }}
-      /> */}
+      />
       <Header />
       <main
         className="relative flex-grow"
@@ -45,7 +51,7 @@ const Layout: React.FC = (pageProps) => {
           WebkitOverflowScrolling: 'touch',
         }}
       >
-        {pageProps.children}
+        {children}
       </main>
       <Footer />
       <MobileNavigation />

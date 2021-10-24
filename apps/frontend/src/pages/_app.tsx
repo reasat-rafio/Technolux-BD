@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import { ToastContainer } from 'react-toastify';
 // import { ReactQueryDevtools } from "react-query/devtools";
-import { DefaultSeo } from '@components/common/default-seo';
+// import { DefaultSeo } from '@components/common/default-seo';
 
 // Load Open Sans and satisfy typeface font
 import '@fontsource/open-sans';
@@ -50,7 +50,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
         <Hydrate state={pageProps.dehydratedState}>
           <ManagedUIContext>
             <Layout pageProps={pageProps}>
-              <DefaultSeo />
+              {/* <DefaultSeo /> */}
               <Component {...pageProps} key={router.route} />
               <ToastContainer />
             </Layout>
