@@ -29,60 +29,17 @@ export default {
               },
             },
             {
-              name: 'images',
-              type: 'object',
-              title: 'Images',
-              fields: [
-                {
-                  title: 'Mobile Banner',
-                  name: 'mobileBanner',
-                  type: 'object',
-                  fields: [
-                    {
-                      name: 'image',
-                      title: 'Image',
-                      type: 'image',
-                      options: {
-                        hotspot: true,
-                      },
-                    },
-
-                    { title: 'Width', name: 'width', type: 'number' },
-                    { title: 'height', name: 'height', type: 'number' },
-                  ],
-                },
-
-                {
-                  title: 'Desktop Banner',
-                  name: 'desktopBanner',
-                  type: 'object',
-                  fields: [
-                    {
-                      name: 'image',
-                      title: 'Image',
-                      type: 'image',
-                      options: {
-                        hotspot: true,
-                      },
-                    },
-
-                    { title: 'Width', name: 'width', type: 'number' },
-                    { title: 'height', name: 'height', type: 'number' },
-                  ],
-                },
-              ],
+              name: 'image',
+              type: 'image',
+              title: 'Image',
             },
 
             {
-              title: 'type',
-              name: 'Type',
+              title: 'Type',
+              name: 'type',
               type: 'string',
               options: {
                 list: [
-                  {
-                    title: 'Small',
-                    value: 'small',
-                  },
                   {
                     title: 'Medium',
                     value: 'medium',
@@ -98,7 +55,7 @@ export default {
           preview: {
             select: {
               title: 'title',
-              media: 'images.mobileBanner.image',
+              media: 'image',
             },
           },
         },

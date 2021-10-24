@@ -34,7 +34,7 @@ const BannerWithProducts: React.FC<ProductsProps> = ({
         <Alert message={error?.message} />
       ) : (
         <div className="grid grid-cols-4 gap-3 lg:gap-5 xl:gap-7">
-          {variant === 'reverse' ? (
+          {/* {variant === 'reverse' ? (
             <BannerCard
               banner={banner[1]}
               href={`${ROUTES.COLLECTIONS}/${banner[1].slug}`}
@@ -48,7 +48,7 @@ const BannerWithProducts: React.FC<ProductsProps> = ({
               className="hidden 3xl:block"
               effectActive={true}
             />
-          )}
+          )} */}
           <div
             className={`col-span-full 3xl:col-span-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 md:gap-5 xl:gap-7 ${
               variant === 'reverse' ? 'row-span-full' : ''

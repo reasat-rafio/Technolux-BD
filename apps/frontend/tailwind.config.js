@@ -56,6 +56,9 @@ module.exports = {
         '500px': '500px',
         '64vh': '64vh',
       },
+      gridTemplateColumns: {
+        13: 'repeat(13, minmax(0, 1fr))',
+      },
       minHeight: {
         '50px': '50px',
       },

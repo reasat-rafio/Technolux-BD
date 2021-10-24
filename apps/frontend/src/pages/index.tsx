@@ -18,6 +18,7 @@ import { withDimensions, renderObjectArray } from 'sanity-react-extra';
 import groq from 'groq';
 import { pageQuery } from '@lib/query';
 import { sanityStaticProps, useSanityQuery } from '@utils/sanity';
+import { SanityProps } from 'next-sanity-extra';
 
 const query = pageQuery(groq`
    *[_id == "landingPage"][0] {
@@ -46,14 +47,14 @@ export const getStaticProps: GetStaticProps = async (context) => ({
   revalidate: 5,
 });
 
-export function Index() {
+export function Index(props: SanityProps) {
   const { page, site } = useSanityQuery(query, props).data;
-
-  console.log(page);
 
   return (
     <>
-      <BannerBlock data={masonryBanner} />
+      {renderObjectArray(page.sections, {
+        heroBanners: BannerBlock,
+      })}
 
       <Container>
         <ProductsFlashSaleBlock date={'2023-03-01T01:02:03'} />
@@ -62,12 +63,12 @@ export function Index() {
       <Container>
         <CategoryBlock sectionHeading="text-shop-by-category" type="rounded" />
         <ProductsFeatured sectionHeading="text-featured-products" />
-        <BannerCard
+        {/* <BannerCard
           key={`banner--key${banner[0].id}`}
           banner={banner[0]}
           href={`${ROUTES.COLLECTIONS}/${banner[0].slug}`}
           className="mb-12 lg:mb-14 xl:mb-16 pb-0.5 lg:pb-1 xl:pb-0"
-        />
+        /> */}
 
         <BannerWithProducts
           sectionHeading="text-on-selling-products"

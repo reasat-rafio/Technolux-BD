@@ -1,21 +1,18 @@
 import Link from '@components/ui/link';
-import Image from 'next/image';
 import type { FC } from 'react';
-import { useWindowSize } from '@utils/use-window-size';
 import clsx from 'clsx';
 import { LinkProps } from 'next/link';
+import { SanityImg } from 'sanity-react-extra';
+import { imageUrlBuilder } from '@utils/sanity';
+import { Banner } from '@lib/types/landing';
 
 interface BannerProps {
-  banner: any;
+  banner: Banner;
   variant?: 'rounded' | 'default';
   effectActive?: boolean;
   className?: string;
   classNameInner?: string;
   href: LinkProps['href'];
-}
-
-function getImage(deviceWidth: number, imgObj: any) {
-  return deviceWidth < 480 ? imgObj.mobile : imgObj.desktop;
 }
 
 const BannerCard: FC<BannerProps> = ({
@@ -26,11 +23,15 @@ const BannerCard: FC<BannerProps> = ({
   classNameInner,
   href,
 }) => {
-  const { width } = useWindowSize();
   const { title, image } = banner;
-  const selectedImage = getImage(width, image);
+
   return (
-    <div className={clsx('mx-auto', className)}>
+    <div
+      className={clsx(
+        ' bg-black w-full 2xl:h-[400px] lg:h-[350px] md:h-[250px] h-[100px]',
+        className
+      )}
+    >
       <Link
         href={href}
         className={clsx(
@@ -38,24 +39,22 @@ const BannerCard: FC<BannerProps> = ({
           classNameInner
         )}
       >
-        <Image
-          src={selectedImage.url}
-          width={selectedImage.width}
-          height={selectedImage.height}
-          alt={title}
-          quality={100}
-          className={clsx(
-            'bg-gray-300 object-cover w-full',
-            variant === 'rounded' && 'rounded-md'
-          )}
-        />
+        <div className="w-full h-full">
+          <SanityImg
+            builder={imageUrlBuilder}
+            image={image}
+            width={600}
+            alt={title}
+            className={clsx(
+              'bg-gray-300 object-cover w-full h-full',
+              variant === 'rounded' && 'rounded-md'
+            )}
+          />
+        </div>
+
         {effectActive && (
           <div className="absolute top-0 left-[-100%] h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
         )}
-
-        {/* {effectActive && (
-          <div className="absolute top-0 -start-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
-        )} */}
       </Link>
     </div>
   );

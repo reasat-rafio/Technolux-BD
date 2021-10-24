@@ -54,13 +54,13 @@ const FlashSaleBlock: React.FC<Props> = ({
         className
       )}
     >
-      <BannerCard
+      {/* <BannerCard
         key={`banner--key${banner.id}`}
         banner={banner}
         href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
         className="xl:h-full xl:col-span-2"
         effectActive={true}
-      />
+      /> */}
       {error ? (
         <Alert message={error?.message} />
       ) : (

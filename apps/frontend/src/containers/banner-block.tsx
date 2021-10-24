@@ -1,30 +1,29 @@
 import BannerCard from '@components/common/banner-card';
-import { ROUTES } from '@utils/routes';
+import { Banner } from '@lib/types/landing';
+
 interface BannerProps {
-  data: any;
+  type: string;
+  banners: Banner[];
   className?: string;
 }
 
-const BannerBlock: React.FC<BannerProps> = ({
-  data,
-  className = 'mb-12 md:mb-14 xl:mb-16',
-}) => {
+const BannerBlock: React.FC<BannerProps> = ({ banners }) => {
+  const className = 'mb-12 md:mb-14 xl:mb-16';
+
+  console.log(banners);
+
   return (
     <div
-      className={`${className} px-2.5 grid grid-cols-2 sm:grid-cols-9 gap-2 md:gap-2.5 max-w-[1920px] mx-auto`}
+      className={`${className} grid grid-cols-13 max-w-[1920px] mx-auto gap-2 `}
     >
-      {data.map((banner: any) => (
+      {banners.map((banner: Banner) => (
         <BannerCard
-          key={`banner--key${banner.id}`}
+          key={`banner--key${banner._key}`}
           banner={banner}
-          href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
+          href={`deals/${banner.slug}`}
           effectActive={true}
           variant="default"
-          className={
-            banner.type === 'medium'
-              ? 'col-span-full sm:col-span-5'
-              : 'col-span-1 sm:col-span-2'
-          }
+          className={banner.type === 'medium' ? 'col-span-3' : 'col-span-7'}
         />
       ))}
     </div>
