@@ -1,11 +1,11 @@
-import cn from "classnames";
-import React, { forwardRef, ButtonHTMLAttributes } from "react";
+import clsx from 'clsx';
+import React, { forwardRef, ButtonHTMLAttributes } from 'react';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  variant?: "flat" | "slim";
+  variant?: 'flat' | 'slim';
   active?: boolean;
-  type?: "submit" | "reset" | "button";
+  type?: 'submit' | 'reset' | 'button';
   loading?: boolean;
   disabled?: boolean;
 }
@@ -13,7 +13,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     className,
-    variant = "flat",
+    variant = 'flat',
     children,
     active,
     loading = false,
@@ -21,16 +21,14 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     ...rest
   } = props;
 
-  const rootClassName = cn(
-    "text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none",
-    {
-      "bg-heading text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-gray-600 hover:shadow-cart":
-        variant === "flat",
-      "h-11 md:h-12 px-5 bg-heading text-white py-2 transform-none normal-case hover:text-white hover:bg-gray-600 hover:shadow-cart":
-        variant === "slim",
-      "cursor-not-allowed": loading,
-      "cursor-not-allowed hover:cursor-not-allowed": disabled,
-    },
+  const rootClassName = clsx(
+    'text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none',
+    variant === 'flat' &&
+      'bg-heading text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-gray-600 hover:shadow-cart',
+    variant === 'slim' &&
+      'h-11 md:h-12 px-5 bg-heading text-white py-2 transform-none normal-case hover:text-white hover:bg-gray-600 hover:shadow-cart',
+    loading && 'cursor-not-allowed',
+    disabled && 'cursor-not-allowed hover:cursor-not-allowed',
     className
   );
 
@@ -69,5 +67,5 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     </button>
   );
 });
-
+Button.displayName = 'Button';
 export default Button;

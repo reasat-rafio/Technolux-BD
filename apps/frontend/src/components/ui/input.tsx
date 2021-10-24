@@ -1,6 +1,6 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { InputHTMLAttributes } from "react";
-import { useTranslation } from "next-i18next";
+
 
 export interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	className?: string;
@@ -39,19 +39,15 @@ const Input = React.forwardRef<HTMLInputElement, Props>(
 		},
 		ref
 	) => {
-		const rootClassName = cn(
-			classes.root,
-			{
-				[classes.normal]: variant === "normal",
-				[classes.solid]: variant === "solid",
-				[classes.outline]: variant === "outline",
-			},
-			{
-				[classes.shadow]: shadow,
-			},
+		const rootClassName = clsx(
+      classes.root,
+      variant === "normal" && [classes.normal],
+      variant === "solid" &&	[classes.solid],
+      variant === "outline" &&	[classes.outline],
+      shadow && 	[classes.shadow],
 			inputClassName
 		);
-		const { t } = useTranslation();
+
 		return (
 			<div className={className}>
 				{labelKey && (
@@ -59,7 +55,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>(
 						htmlFor={name}
 						className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer"
 					>
-						{t(labelKey)}
+					{labelKey}
 					</label>
 				)}
 				<input
@@ -67,18 +63,19 @@ const Input = React.forwardRef<HTMLInputElement, Props>(
 					name={name}
 					type={type}
 					ref={ref}
-					// @ts-ignore
-					placeholder={t(placeholderKey)}
+
+					placeholder={placeholderKey}
 					className={rootClassName}
 					autoComplete="off"
 					spellCheck="false"
 					aria-invalid={errorKey ? "true" : "false"}
 					{...rest}
 				/>
-				{errorKey && <p className="my-2 text-xs text-red-500">{t(errorKey)}</p>}
+				{errorKey && <p className="my-2 text-xs text-red-500">{errorKey}</p>}
 			</div>
 		);
 	}
 );
 
+Input.displayName = "Input";
 export default Input;
