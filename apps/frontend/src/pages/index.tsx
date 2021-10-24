@@ -11,6 +11,7 @@ export function Index() {
       <Container>
         <ProductsFlashSaleBlock date={'2023-03-01T01:02:03'} />
       </Container>
+      <BannerSliderBlock />
     </>
   );
 }
