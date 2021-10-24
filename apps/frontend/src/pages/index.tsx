@@ -1,6 +1,8 @@
 import Container from '@components/ui/container';
 import { homeThreeMasonryBanner as masonryBanner } from '@framework/static/banner';
 import BannerBlock from 'src/containers/banner-block';
+import BannerSliderBlock from 'src/containers/banner-slider-block';
+import CategoryBlock from 'src/containers/category-block';
 import ProductsFlashSaleBlock from 'src/containers/product-flash-sale-block';
 
 export function Index() {
@@ -12,6 +14,10 @@ export function Index() {
         <ProductsFlashSaleBlock date={'2023-03-01T01:02:03'} />
       </Container>
       <BannerSliderBlock />
+
+      <Container>
+        <CategoryBlock sectionHeading="text-shop-by-category" type="rounded" />
+      </Container>
     </>
   );
 }
