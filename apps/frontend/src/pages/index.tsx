@@ -10,6 +10,8 @@ import BannerCard from '@components/common/banner-card';
 import { ROUTES } from '@utils/routes';
 import BannerWithProducts from 'src/containers/banner-with-products';
 import ExclusiveBlock from 'src/containers/exclusive-block';
+import NewArrivalsProductFeed from '@components/product/feeds/new-arrivals-product-feed';
+import Subscription from '@components/common/subscription';
 
 export function Index() {
   return (
@@ -23,6 +25,7 @@ export function Index() {
 
       <Container>
         <CategoryBlock sectionHeading="text-shop-by-category" type="rounded" />
+
         <ProductsFeatured sectionHeading="text-featured-products" />
 
         <BannerCard
@@ -36,7 +39,9 @@ export function Index() {
           sectionHeading="text-on-selling-products"
           categorySlug="/search"
         />
-        <ExclusiveBlock />
+        {/* <ExclusiveBlock /> */}
+        <NewArrivalsProductFeed />
+        <Subscription className="bg-opacity-0 px-5 sm:px-16 xl:px-0 py-12 md:py-14 xl:py-16" />
       </Container>
     </>
   );
