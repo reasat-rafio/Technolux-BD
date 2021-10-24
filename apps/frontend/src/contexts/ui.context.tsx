@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useReducer } from 'react';
 import { getToken } from '@framework/utils/get-token';
 import { CartProvider } from './cart/cart.context';
 
@@ -94,7 +94,7 @@ type MODAL_VIEWS =
 type DRAWER_VIEWS = 'CART_SIDEBAR' | 'MOBILE_MENU';
 type ToastText = string;
 
-export const UIContext = React.createContext<State | unknown>(initialState);
+export const UIContext = createContext<State | unknown>(initialState);
 
 UIContext.displayName = 'UIContext';
 
@@ -208,7 +208,7 @@ function uiReducer(state: State, action: Action) {
 }
 
 export const UIProvider: React.FC = (props) => {
-  const [state, dispatch] = React.useReducer(uiReducer, initialState);
+  const [state, dispatch] = useReducer(uiReducer, initialState);
 
   const authorize = () => dispatch({ type: 'SET_AUTHORIZED' });
   const unauthorize = () => dispatch({ type: 'SET_UNAUTHORIZED' });
@@ -240,9 +240,8 @@ export const UIProvider: React.FC = (props) => {
   const setUserAvatar = (_value: string) =>
     dispatch({ type: 'SET_USER_AVATAR', value: _value });
 
-  const setModalView = (view: MODAL_VIEWS) : void =>
+  const setModalView = (view: MODAL_VIEWS): void =>
     dispatch({ type: 'SET_MODAL_VIEW', view });
-
 
   const setDrawerView = (view: DRAWER_VIEWS) =>
     dispatch({ type: 'SET_DRAWER_VIEW', view });
@@ -280,7 +279,7 @@ export const UIProvider: React.FC = (props) => {
 };
 
 // TODO the any type
-export const useUI : any = () => {
+export const useUI: any = () => {
   const context = React.useContext(UIContext);
   if (context === undefined) {
     throw new Error(`useUI must be used within a UIProvider`);

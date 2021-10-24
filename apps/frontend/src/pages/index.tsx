@@ -24,12 +24,9 @@ export function Index() {
         <ProductsFlashSaleBlock date={'2023-03-01T01:02:03'} />
       </Container>
       <BannerSliderBlock />
-
       <Container>
         <CategoryBlock sectionHeading="text-shop-by-category" type="rounded" />
-
         <ProductsFeatured sectionHeading="text-featured-products" />
-
         <BannerCard
           key={`banner--key${banner[0].id}`}
           banner={banner[0]}
@@ -53,7 +50,7 @@ export default Index;
 
 Index.Layout = Layout;
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       ...['common', 'forms', 'menu', 'footer'],

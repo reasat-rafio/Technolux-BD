@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { cartReducer, State, initialState } from './cart.reducer';
 import { Item, getItem } from './cart.utils';
 import { useLocalStorage } from '@utils/use-local-storage';
+
 interface CartProviderState extends State {
   addItemToCart: (item: Item, quantity: number) => void;
   removeItemFromCart: (id: Item['id']) => void;
@@ -49,7 +50,7 @@ export const CartProvider: React.FC = (props) => {
   const isInCart = (id: Item['id']) => !!getItem(state.items, id);
   const getItemFromCart = (id: Item['id']) => getItem(state.items, id);
   // const inStock=()=>{}
-  const value = React.useMemo(
+  const value = useMemo(
     () => ({
       ...state,
       addItemToCart,

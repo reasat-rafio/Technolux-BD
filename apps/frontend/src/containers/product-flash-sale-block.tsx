@@ -51,7 +51,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }: any) => {
 };
 
 const ProductsFlashSaleBlock: React.FC<ProductsProps> = ({
-  sectionHeading = 'text-flash-sale',
+  sectionHeading = 'Flash Sale',
   className = 'mb-12 md:mb-14 xl:mb-16',
   date = '2023-03-01T01:02:03',
 }) => {

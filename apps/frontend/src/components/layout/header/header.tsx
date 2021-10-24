@@ -7,6 +7,7 @@ import { useUI } from '@contexts/ui.context';
 import { ROUTES } from '@utils/routes';
 import { AddActiveScroll } from '@utils/add-active-scroll';
 import dynamic from 'next/dynamic';
+import LanguageSwitcher from '@components/ui/language-switcher';
 
 // import LanguageSwitcher from '@components/ui/language-switcher';
 const AuthMenu = dynamic(() => import('./auth-menu'), { ssr: false });
@@ -33,6 +34,7 @@ const Header: React.FC = () => {
     setModalView('LOGIN_VIEW');
     return openModal();
   }
+
   function handleMobileMenu() {
     setDrawerView('MOBILE_MENU');
     return openSidebar();
@@ -63,10 +65,10 @@ const Header: React.FC = () => {
             data={site_header.menu}
             className="hidden lg:flex md:ms-6 xl:ms-10"
           />
-          {/*
+
           <div className="flex-shrink-0 ms-auto lg:me-5 xl:me-8 2xl:me-10">
             <LanguageSwitcher />
-          </div> */}
+          </div>
           <div className="hidden md:flex justify-end items-center space-s-6 lg:space-s-5 xl:space-s-8 2xl:space-s-10 ms-auto flex-shrink-0">
             <button
               className="flex items-center justify-center flex-shrink-0 h-auto relative focus:outline-none transform"
