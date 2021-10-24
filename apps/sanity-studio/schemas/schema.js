@@ -6,6 +6,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 // We import object and document schemas
 import blockContent from './blockContent';
 
+import seo from './objects/seo';
+
 import category from './documents/category';
 import brand from './documents/brand';
 import deal from './documents/deal';
@@ -19,23 +21,25 @@ import productVariant from './objects/shop/productVariant';
 import localeString from './locale/String';
 import localeBlockContent from './locale/BlockContent';
 
+import landingPage from './pages/landing';
+import banner from './objects/landing/banner';
+
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
-  // We name our schema
   name: 'default',
-  // Then proceed to concatenate our document type
-  // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
-    // The following are document types which will appear
-    // in the studio.
+    seo,
+
     site,
     menuItem,
 
     brand,
     category,
     deal,
-    // When added to this list, object types can be used as
-    // { type: 'typename' } in other document schemas
+
+    landingPage,
+    banner,
+
     blockContent,
 
     product,

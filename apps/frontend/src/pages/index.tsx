@@ -14,8 +14,43 @@ import NewArrivalsProductFeed from '@components/product/feeds/new-arrivals-produ
 import Subscription from '@components/common/subscription';
 import Layout from '@components/layout/layout';
 import { GetStaticProps } from 'next';
+import { withDimensions, renderObjectArray } from 'sanity-react-extra';
+import groq from 'groq';
+import { pageQuery } from '@lib/query';
+import { sanityStaticProps, useSanityQuery } from '@utils/sanity';
+
+const query = pageQuery(groq`
+   *[_id == "landingPage"][0] {
+     ...,
+      sections[]{
+      ...,
+      banners[]{
+        ...,
+        images{
+          ...,
+          desktopBanner{
+          ...,
+          "image": ${withDimensions('image')},
+          },
+          mobileBanner{
+          ...,
+          "image": ${withDimensions('image')},
+          },
+        }
+      },
+    },
+  }`);
+
+export const getStaticProps: GetStaticProps = async (context) => ({
+  props: await sanityStaticProps({ query: query, context }),
+  revalidate: 5,
+});
 
 export function Index() {
+  const { page, site } = useSanityQuery(query, props).data;
+
+  console.log(page);
+
   return (
     <>
       <BannerBlock data={masonryBanner} />
@@ -49,11 +84,3 @@ export function Index() {
 export default Index;
 
 Index.Layout = Layout;
-
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    props: {
-      ...['common', 'forms', 'menu', 'footer'],
-    },
-  };
-};

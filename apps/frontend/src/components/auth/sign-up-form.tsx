@@ -104,9 +104,7 @@ const SignUpForm: React.FC = () => {
       </form>
       <div className="flex flex-col items-center justify-center relative text-sm text-heading mt-6 mb-3.5">
         <hr className="w-full border-gray-300" />
-        <span className="absolute -top-2.5 px-2 bg-white">
-          {t('common:text-or')}
-        </span>
+        <span className="absolute -top-2.5 px-2 bg-white">common:text-or</span>
       </div>
 
       <Button

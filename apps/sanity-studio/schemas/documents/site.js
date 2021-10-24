@@ -11,7 +11,7 @@ export default {
       type: 'image',
       title: 'Logo',
     },
-
+    { name: 'ogImage', type: 'image', title: 'Default SEO Image' },
     {
       name: 'menu',
       title: 'Menu',

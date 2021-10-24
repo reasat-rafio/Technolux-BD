@@ -26,6 +26,8 @@
     "js-cookie": "^3.0.1",
     "lodash": "^4.17.21",
     "next": "11.1.0",
+    "next-sanity": "^0.4.0",
+    "next-sanity-extra": "^0.2.3",
     "next-seo": "^4.28.1",
     "overlayscrollbars-react": "^0.2.3",
     "rc-drawer": "^4.4.2",
@@ -42,6 +44,7 @@
     "reflect-metadata": "^0.1.13",
     "regenerator-runtime": "0.13.7",
     "rxjs": "~6.6.3",
+    "sanity-react-extra": "^0.2.4",
     "swiper": "^6.7.0",
     "tslib": "^2.0.0"
   },
